@@ -34,6 +34,17 @@ public class StudentDB {
 	public ArrayList <Student> getKlas() {
 		return this.klasLijst;
 	}
-	
+
+	public void removeStudent(String naamTBD, String voornaamTBD){
+		Student deletedStudent = null;
+		for (Student student : klasLijst){
+			String voornaam = student.getVoornaam();
+			String naam = student.getNaam();
+			if (student != null && voornaam.equals(voornaamTBD) && naam.equals(naamTBD)){
+				deletedStudent = student;
+			}
+		}
+		klasLijst.remove(deletedStudent);
+	}
 	
 }

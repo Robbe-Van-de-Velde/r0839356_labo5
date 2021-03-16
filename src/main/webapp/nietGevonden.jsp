@@ -8,21 +8,7 @@
 <title>Niet gevonden</title>
 </head>
 <body>
-	<header role="banner">
-	<div>
-		<h1>Studentenregistratie</h1>
-		<nav>
-		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="zoekForm.jsp">Zoek een student</a></li>
-			<li><a href="studentForm.jsp">Voeg een student toe</a></li>
-			<li><a href="studentOverview.jsp">Bekijk alle studenten</a></li>
-		</ul>
-		</nav>
-		</div>
-						<img alt="Toscane" src="images/student.jpg">
-		
-	</header>
+<%@include file="header.jsp"%>
 	<main>
 	<p id="foutboodschap">Helaas, de student waarnaar je vraagt is niet gevonden. </p>
 	</main>

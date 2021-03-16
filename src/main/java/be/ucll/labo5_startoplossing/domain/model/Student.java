@@ -15,16 +15,18 @@ public class Student {
 		setLeeftijd(leeftijd);
 		setStudierichting(studierichting);
 	}
-	
-	
+
+
 	public String getNaam() {
 		return naam;
 	}
-	public void setNaam(String naam) {
-		this.naam = naam;
-	}
+
 	public String getVoornaam() {
 		return voornaam;
+	}
+
+	public void setNaam(String naam) {
+		this.naam = naam;
 	}
 	public void setVoornaam(String voornaam) {
 		this.voornaam = voornaam;

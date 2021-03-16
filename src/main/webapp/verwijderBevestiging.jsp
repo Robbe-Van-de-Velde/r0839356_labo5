@@ -8,29 +8,18 @@
     <title>Verwijder een student</title>
 </head>
 <body>
-<header>
-    <div>
-        <h1>Studentenregistratie</h1>
-        <nav>
-            <ul>
-                <li><a href="index.jsp">Home</a></li>
-                <li><a href="zoekForm.jsp">Zoek een student</a></li>
-                <li><a href="studentForm.jsp">Voeg een student toe</a></li>
-                <li><a href="studentOverview.jsp">Bekijk alle studenten</a></li>
-            </ul>
-        </nav>
-    </div>
-    <img alt="Toscane" src="images/student.jpg">
-
-</header>
+<%@include file="header.jsp"%>
 
 <main id="container">
     <article>
         <h2>Verwijder deze student</h2>
 
-        <p>Ben je zeker dat je de student VOORNAAM NAAM wil verwijderen?</p>
-        <form action="" method="">
+        <p>Ben je zeker dat je de student ${studentvoornaam}
+           ${studentnaam} wil verwijderen?</p>
+        <form action="StudentInfo?command=DELETE&naam=${studentnaam}&voornaam=${studentvoornaam}" method="post">
             <input type="submit" value="Zeker">
+        </form>
+        <form action="index.jsp">
             <input type="submit" value="Toch niet">
         </form>
     </article>

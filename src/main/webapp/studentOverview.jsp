@@ -2,6 +2,7 @@
 <%@ page import="be.ucll.labo5_startoplossing.domain.model.Student" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,57 +11,39 @@
 <title>Overzicht Studenten</title>
 </head>
 <body>
-	<header>
-		<div>
-			<h1>Studentenregistratie</h1>
-			<nav>
-				<ul>
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="zoekForm.jsp">Zoek een student</a></li>
-					<li><a href="studentForm.jsp">Voeg een student toe</a></li>
-					<li><a href="studentOverview.jsp">Bekijk alle studenten</a></li>
-				</ul>
-			</nav>
-		</div>
-		<img alt="Toscane" src="images/student.jpg">
-
-	</header>
+<jsp:include page="header.jsp">
+	<jsp:param name="page" value="overview"/>
+</jsp:include>
 
 	<main id="container">
 	<article>
 		<h2>Overzicht studenten</h2>
-		<%
-			Collection<Student> students = (Collection<Student>) request.getAttribute("studenten");
-			if (students != null) {
-		%>
-		<table id="overview">
-			<tr>
-				<th>Naam</th>
-				<th>Voornaam</th>
-				<th class="getal">Leeftijd</th>
-				<th>Studierichting</th>
+				<c:choose>
+				<c:when test = "${studenten.size() == 0}">
+					<p>Er zijn nog geen studenten toegevoegd.</p>
+				</c:when>
+				<c:otherwise>
+					<table id="overview">
+						<tr>
+							<th>Naam</th>
+							<th>Voornaam</th>
+							<th class="getal">Leeftijd</th>
+							<th>Studierichting</th>
+						</tr>
+			<c:forEach var="student" items = "${studenten}">
+			<tr id="${student.getNaam()}">
+				<td>${student.getNaam()}</td>
+				<td>${student.getVoornaam()}</td>
+				<td class="getal">${student.getLeeftijd()}</td>
+				<td>${student.getStudierichting()}</td>
+				<td><a href="StudentInfo?command=DELETECONFIRM&naam=${student.getNaam()}&voornaam=${student.getVoornaam()}">Verwijder
+				</a></td>
 			</tr>
-			<%
-				for (Student student : students) {
-			%>
-			<tr id="<%=student.getNaam()%>">
-				<td><%=student.getNaam()%></td>
-				<td><%=student.getVoornaam()%></td>
-				<td class="getal"><%=student.getLeeftijd()%></td>
-				<td><%=student.getStudierichting()%></td>
-			</tr>
-			<%
-				}
-			%>
-		</table>
-		<%
-			} else {
-		%>
-		<p>Er zijn nog geen studenten toegevoegd.</p>
-		<%
-			}
-		%>
 
+			</c:forEach>
+					</table>
+			</c:otherwise>
+			</c:choose>
 	</article>
 	</main>
 </body>

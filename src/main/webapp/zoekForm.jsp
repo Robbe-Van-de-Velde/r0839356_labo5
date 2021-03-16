@@ -8,26 +8,16 @@
 <title>Studenten</title>
 </head>
 <body>
-	<header>
-		<div>
-			<h1>Studentenregistratie</h1>
-			<nav>
-				<ul>
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="zoekForm.jsp">Zoek een student</a></li>
-					<li><a href="studentForm.jsp">Voeg een student toe</a></li>
-					<li><a href="studentOverview.jsp">Bekijk alle studenten</a></li>
-				</ul>
-			</nav>
-		</div>
-		<img alt="Toscane" src="images/student.jpg">
-	</header>
+<jsp:include page="header.jsp">
+	<jsp:param name="page" value="zoek"/>
+</jsp:include>
 
 	<main id="container">
 	<article>
 		<h1>Zoek een student</h1>
 		<form method="Get" action="StudentInfo" novalidate>
 			<p>Wie zoek je?</p>
+			<input type="hidden" name="command" value="FIND" >
 			<p class="form-group">
 				<label class="control-label" for="naam">Naam: </label> <input
 					id="naam" name="naam" type="text" value="" required>

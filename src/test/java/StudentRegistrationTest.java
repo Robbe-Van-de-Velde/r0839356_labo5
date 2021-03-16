@@ -13,12 +13,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class StudentRegistrationTest {
 	private WebDriver driver;
-	private String url = "http://localhost:8080/";
+	private String url = "http://localhost:8080/labo5_startoplossing_war_exploded/";
 
 	@Before
 	public void setUp() throws Exception {
 		// PAS DIT AAN NAAR JE EIGEN CHROME OF GECKODRIVER
-		System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\robbe\\OneDrive\\Documenten\\Schooljaar " +
+				"2020-2021\\Tweede semester\\Web2\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 	}

@@ -1,7 +1,6 @@
 <%@ page import="be.ucll.labo5_startoplossing.domain.model.Student" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
- <% Student student= (Student) request.getAttribute("student"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,23 +9,9 @@
 <link rel="stylesheet" href="css/sample.css">
 </head>
 <body>
-<header>
-	<div>
-		<h1>Studentenregistratie</h1>
-		<nav>
-		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="zoekForm.jsp">Zoek een student</a></li>
-			<li><a href="studentForm.jsp">Voeg een student toe</a></li>
-			<li><a href="studentOverview.jsp">Bekijk alle studenten</a></li>
-		</ul>
-		</nav>
-		</div>
-				<img alt="Toscane" src="images/student.jpg">
-		
-</header>
+<%@include file="header.jsp"%>
 <main>
-<p id="boodschap">Je vroeg naar volgende gegevens: <%= student.format() %></p>
+<p id="boodschap">Je vroeg naar volgende gegevens: ${student.format()}</p>
 </main>
 
 </body>
